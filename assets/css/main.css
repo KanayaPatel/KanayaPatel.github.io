@@ -2599,7 +2599,11 @@ input, select, textarea {
 		justify-content: space-between;
 		background-color: #1f1815;
 		background-attachment: scroll,								scroll;
+<<<<<<< HEAD
 		background-image: url("images/overlay.png");
+=======
+		background-image: url("images/overlay.png"),
+>>>>>>> 49b121c7a5bcc82cf7a778a504cc7197983fea86
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
 		background-size: auto,								150%;
