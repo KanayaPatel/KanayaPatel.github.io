@@ -2597,7 +2597,7 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background-color: #1f1815;
+		background-color: #191001;
 		background-attachment: scroll,								scroll;
 <<<<<<< HEAD
 		background-image: url("images/overlay.png");
@@ -3256,7 +3256,7 @@ input, select, textarea {
     #nav ul li a {
         display: inline-block;
         padding: 1em 0;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.5);
         text-decoration: none;
         border-bottom: none;
         font-size: 0.9em;
