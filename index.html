@@ -6,17 +6,220 @@
 -->
 <html>
 	<head>
-		<title>Kanaya P. Web</title>
+		<title>Kanaya Patel Website</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<style>
+			:root {
+				color-scheme: dark;
+				}
+
+			.image.avatar img {
+				width: min(400px, 60vw);
+				aspect-ratio: 1 / 1;
+				height: auto;
+				object-fit: cover;
+				border-radius: 50%;
+				display: block;
+				margin: 0 auto;
+				}
+
+			/* Project grid polish */
+			#two .work-item {
+				transition: transform 0.25s ease, box-shadow 0.25s ease;
+				border-radius: 6px;
+				overflow: hidden;
+				}
+
+			#two .work-item:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+				}
+
+			#two .work-item .image.fit {
+				aspect-ratio: 16 / 9;
+				overflow: hidden;
+				display: block;
+				}
+
+			#two .work-item .image.fit img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				transition: transform 0.35s ease;
+				}
+
+			#two .work-item:hover .image.fit img {
+				transform: scale(1.05);
+				}
+
+			#two .work-item h3 {
+				margin-top: 0.75em;
+				margin-bottom: 0.25em;
+				}
+
+			#two .work-item p {
+				font-size: 0.9em;
+				color: rgba(255, 255, 255, 0.7);
+				}
+
+			/* Hero header treatment, ties to the accent colors used in project thumbnails */
+			body {
+				background-color: #14151a;
+				background-image:
+					radial-gradient(circle at 15% 20%, rgba(78, 161, 255, 0.16), transparent 40%),
+					radial-gradient(circle at 85% 15%, rgba(126, 231, 135, 0.14), transparent 42%),
+					radial-gradient(circle at 75% 85%, rgba(255, 92, 57, 0.12), transparent 45%),
+					radial-gradient(circle at 20% 90%, rgba(255, 77, 141, 0.10), transparent 40%);
+				background-attachment: fixed;
+				}
+
+			#header {
+				overflow-x: hidden;
+				background: transparent;
+				}
+
+			#header::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background-image:
+					linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+				background-size: 48px 48px;
+				pointer-events: none;
+				}
+
+			/* Bigger, more readable body text across the main content */
+			#one p,
+			#three p,
+			#skills h3 {
+				font-size: 1.2em;
+				line-height: 1.7;
+				}
+
+			#experience p {
+				font-size: 0.95em;
+				line-height: 1.6;
+				}
+
+			#experience .work-item p:first-of-type {
+				font-style: italic;
+				}
+
+			/* Custom bullet points for the description lines beneath each role */
+			#experience .exp-bullets {
+				list-style: none;
+				margin: 0.6em 0 0 0;
+				padding: 0;
+				}
+
+			#experience .exp-bullets li {
+				position: relative;
+				font-size: 0.88em;
+				line-height: 1.6;
+				padding-left: 1.3em;
+				margin-bottom: 0.5em;
+				}
+
+			#experience .exp-bullets li::before {
+				content: "▸";
+				position: absolute;
+				left: 0;
+				color: #4ea1ff;
+				font-size: 1.05em;
+				}
+
+			#experience h3 {
+				font-size: 1.05em;
+				}
+
+			/* Skills as clean tag pills instead of bullet lists */
+			#skills h3 {
+				margin-bottom: 0.9em;
+				}
+
+			.skill-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				}
+
+			.skill-tags span {
+				display: inline-block;
+				font-size: 0.85em;
+				line-height: 1.4;
+				padding: 0.45em 0.9em;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.04);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				color: rgba(255, 255, 255, 0.82);
+				transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+				}
+
+			.skill-tags span:hover {
+				transform: translateY(-2px);
+				}
+
+			.skill-tags--lang span:hover {
+				border-color: #4ea1ff;
+				background: rgba(78, 161, 255, 0.12);
+				}
+
+			.skill-tags--frame span:hover {
+				border-color: #7ee787;
+				background: rgba(126, 231, 135, 0.12);
+				}
+
+			.skill-tags--data span:hover {
+				border-color: #ff4d8d;
+				background: rgba(255, 77, 141, 0.12);
+				}
+
+			.skill-more {
+				display: inline-block;
+				margin-top: 0.9em;
+				font-size: 0.85em;
+				text-decoration: none;
+				color: rgba(255, 255, 255, 0.55);
+				transition: color 0.2s ease, transform 0.2s ease;
+				}
+
+			.skill-more:hover {
+				transform: translateX(3px);
+				}
+
+			.skill-more--lang:hover {
+				color: #4ea1ff;
+				}
+
+			.skill-more--frame:hover {
+				color: #7ee787;
+				}
+
+			.skill-more--data:hover {
+				color: #ff4d8d;
+				}
+
+			#three .labeled-icons a {
+				font-size: 1.15em;
+				}
+
+			#header .inner {
+				position: relative;
+				z-index: 1;
+				}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<a href="#" class="image avatar"><img src="images/avatar.jpg" width="400px" height="auto"/></a>
 					<h1><strong>Kanaya Patel</strong><br />
 					Data Science · Economics · CS<br />
 					University of Oregon</h1>
@@ -43,8 +246,8 @@
 						<header class="major">
 							<h2>Who am I?</h2>
 						</header>
-						<p>I'm a <strong>Data Science</strong> student at the University of Oregon with a concentration in <strong>Economics</strong> and a minor in <strong>Computer Science</strong>. I specialize in <strong>Data Exploration and Analysis</strong> using <strong>Python</strong> and <strong>Jupyter Notebook</strong>. Currently <strong>seeking</strong> roles in <strong>Data Analytics</strong>, <strong>Research</strong>, and <strong>Data Science</strong>.</p>
-						<p>In my free time, I enjoy hiking, playing games with some friends, and hanging out with those I love.</p>
+						<p>I just graduated with a <strong>Data Science</strong> degree from the University of Oregon, with a concentration in <strong>Economics</strong> and a minor in <strong>Computer Science</strong>. I like turning messy public datasets into clear, defensible answers using <strong>Python</strong> and <strong>Jupyter Notebook</strong>, most recently through a causal analysis of CAHOOTS' 2023 defunding in Eugene. Right now I'm looking for roles in <strong>Data Analytics</strong>, <strong>Research</strong>, or <strong>Data Science</strong>.</p>
+						<p>Outside of that, I'm probably deep in a run of Slay the Spire 2, getting lost in Subnautica for the third time, or yelling at my screen playing Deadlock with friends. When I need to actually leave the house, you'll find me hiking somewhere like Silver Falls, Multnomah Falls, or Crater Lake (bonus points if there's a waterfall involved). And if I'm not doing either of those, I've probably got music on. My rotation jumps around a lot, think Joji, Sombr, Baby Keem, and Kendrick Lamar, plus whatever else catches my ear that week.</p>
 					</section>
 
 				<!-- Experience -->
@@ -56,19 +259,26 @@
 						<div class="work-item">
 							<h3>Data Science Learning Assistant — University of Oregon</h3>
 							<p><em>Mar. 2026 – Present</em></p>
-							<p>Helped students learn the basics of Data Science including A/B Testing, Bootstrapping, and Probabilities.</p>
+							<ul class="exp-bullets">
+								<li>Teach ~50 students a term the core ideas behind A/B testing, bootstrapping, and probability through weekly one-on-one and group sessions.</li>
+								<li>Adjust explanations to fit different learning styles, which has measurably improved how well students grasp applied statistical methods.</li>
+							</ul>
 						</div>
 
 						<div class="work-item">
 							<h3>Intern — Connected Lane County</h3>
 							<p><em>Jun. 2023 – Aug. 2023</em></p>
-							<p>Collaborated with a cross-functional team to design and prototype products using modern fabrication technologies. Applied Python and C++ in small-scale projects with a user-focused approach.</p>
+							<ul class="exp-bullets">
+								<li>Worked with a small cross-functional team to take product ideas from concept to working prototype, using Python and C++ alongside hands-on fabrication tools like 3D printers and laser cutters.</li>
+							</ul>
 						</div>
 
 						<div class="work-item">
 							<h3>Cashier — Bi-Mart</h3>
 							<p><em>Sep. 2023 – Present</em></p>
-							<p>Delivered high-quality customer service while maintaining accuracy and efficiency in a fast-paced retail environment.</p>
+							<ul class="exp-bullets">
+								<li>Keep transactions fast and accurate through steady foot traffic, while staying friendly and easy to work with under pressure.</li>
+							</ul>
 						</div>
 					</section>
 
@@ -81,43 +291,36 @@
 						<div class="row">
 							<div class="col-4 col-12-xsmall">
 								<h3>Languages</h3>
-								<ul>
-									<li>Python</li>
-									<li>SQL</li>
-									<li>R</li>
-									<li>JavaScript</li>
-									<li>HTML/CSS</li>
-									<li>C / C++</li>
-									<li>Java</li>
-									<li>Kotlin</li>
-								</ul>
+								<div class="skill-tags skill-tags--lang">
+									<span>Python</span>
+									<span>SQL</span>
+									<span>R</span>
+									<span>JavaScript</span>
+									<span>HTML/CSS</span>
+								</div>
+								<a class="skill-more skill-more--lang" href="Kanaya_Patel_Resume.pdf" target="_blank">More on my resume →</a>
 							</div>
 							<div class="col-4 col-12-xsmall">
 								<h3>Frameworks</h3>
-								<ul>
-									<li>Jupyter Notebook/li>
-									<li>Flask</li>
-									<li>Git / VS Code</li>
-									<li>pandas / NumPy</li>
-									<li>Matplotlib / Seaborn / Plotly</li>
-									<li>PyTorch</li>
-									<li>SciPy / nltk</li>
-								</ul>
+								<div class="skill-tags skill-tags--frame">
+									<span>Jupyter Notebook</span>
+									<span>pandas / NumPy</span>
+									<span>Matplotlib / Seaborn / Plotly</span>
+									<span>Git / VS Code</span>
+									<span>Flask</span>
+								</div>
+								<a class="skill-more skill-more--frame" href="Kanaya_Patel_Resume.pdf" target="_blank">More on my resume →</a>
 							</div>
 							<div class="col-4 col-12-xsmall">
 								<h3>Data Skills</h3>
-								<ul>
-									<li>Data Exploration & Analysis</li>
-									<li>Data Cleaning</li>
-									<li>Data Visualization</li>
-									<li>Statistical Modeling</li>
-									<li>A/B Testing</li>
-									<li>Bootstrapping</li>
-									<li>Exploratory Data Analysis</li>
-									<li>Data Mining</li>
-									<li>Machine Learning</li>
-									<li>Hypothesis Testing</li>
-								</ul>
+								<div class="skill-tags skill-tags--data">
+									<span>Data Visualization</span>
+									<span>Statistical Modeling</span>
+									<span>A/B Testing</span>
+									<span>Machine Learning</span>
+									<span>Hypothesis Testing</span>
+								</div>
+								<a class="skill-more skill-more--data" href="Kanaya_Patel_Resume.pdf" target="_blank">More on my resume →</a>
 							</div>
 						</div>
 					</section>
@@ -127,22 +330,22 @@
 						<h2>Recent Work</h2>
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/stock.jpg" class="image fit thumb"><img src="images/thumbs/stock.jpg" alt="" /></a>
-								<h3><a href="https://github.com/KanayaPatel/Valuation-Project">Simple Stock Value Predictor</a></h3>
-								<p>Utilized time series data from Yahoo Finance to build a predictive model for stock prices.</p>
+								<a href="images/fulls/CAHOOTS.png" class="image fit thumb"><img src="images/thumbs/CAHOOTS.png" alt="CAHOOTS gap and performance analysis dashboard" /></a>
+								<h3><a href="https://github.com/KanayaPatel/CAHOOTS-Gap-Performance-Analysis">CAHOOTS Gap Analysis</a></h3>
+								<p>Conducted a comprehensive gap analysis for previous CAHOOTS members, identifying areas for improvement and optimization for present day operations.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/sent.jpg" class="image fit thumb"><img src="images/thumbs/sent.jpg" alt="" /></a>
-								<h3><a href="https://github.com/KanayaPatel/Sentiment-Analysis-Project">Sentiment Analysis</a></h3>
+								<a href="images/fulls/sent.jpg" class="image fit thumb"><img src="images/thumbs/sent.jpg" alt="Reddit post sentiment analysis web app screenshot" /></a>
+								<h3><a href="https://github.com/KanayaPatel/Sentiment-Analysis-Project">Reddit Post Sentiment Analyser</a></h3>
 								<p>Analyzed social media data to determine public sentiment towards various brands and products.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/pan.jpg" class="image fit thumb"><img src="images/thumbs/pan.jpg" alt="" /></a>
+								<a href="images/fulls/trade+unem.jpg" class="image fit thumb"><img src="images/thumbs/trade+unem.jpg" alt="Trade and unemployment analysis chart" /></a>
 								<h3><a href="https://github.com/KanayaPatel/Trade-Impact-on-Unemployment-Analysis">Analysis on Trade & its Impact on Unemployment (US)</a></h3>
-								<p>Examined the relationship between trade policies and unemployment rates in the United States.</p>
+								<p>Examined the relationship between trade policies and unemployment rates in the United States using statistical methods and public governmental datasets.</p>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/diab.jpg" class="image fit thumb"><img src="images/thumbs/diab.jpg" alt="" /></a>
+								<a href="images/fulls/diab.jpg" class="image fit thumb"><img src="images/thumbs/diab.jpg" alt="Diabetes diagnosis factor analysis chart (work in progress)" /></a>
 								<h3>Analysis on Diagnosis of Diabetes (US) - <strong>WIP</strong></h3>
 								<p>Investigated factors influencing the diagnosis and management of diabetes in the United States.</p>
 							</article>
@@ -155,9 +358,8 @@
 				<!-- Three -->
 					<section id="three">
 						<h2>Get In Touch</h2>
-						<p>I'm currently open to opportunities in Data Analytics, Research, and Data Science. 
-						Feel free to reach out — I'd love to connect and chat with you!</p>
-						<p>If you're interested in looking at my resume, feel free to view it through clicking on the right-most icon on the nav-bar at the top!</p>
+						<p>I'm actively looking for opportunities in Data Analytics, Research, and Data Science. If any of this looks like a fit, I'd love to hear from you.</p>
+						<p>Want to see my resume? Click the icon on the right side of the nav bar up top.</p>
 						<ul class="labeled-icons">
 							<li>
 								<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
